@@ -1,0 +1,32 @@
+{
+    "name": "faso-dev/aqilas-sms-sdk",
+    "description": "An unofficial sdk to conciliate AQILAS SMS REST API integration in php project by providing a set of classes and functions to interact with the API.",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "9.5.*"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "FasoDev\\AqilasSmsSdk\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FasoDev\\AqilasSmsSdk\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jerome Onadja",
+            "email": "jeromeonadja28@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "faso-dev/simple-curl-client": "dev-main"
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit --configuration phpunit.xml"
+    }
+}
