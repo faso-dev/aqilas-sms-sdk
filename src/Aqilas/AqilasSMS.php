@@ -8,7 +8,7 @@
 	use FasoDev\SimpleCurlClient\Curl\CurlRequestErrorException;
 	use FasoDev\SimpleCurlClient\Http\ClientResponseInterface;
 	
-	class Aqilas
+	class AqilasSMS
 	{
 		private Config $config;
 		
