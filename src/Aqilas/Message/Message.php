@@ -43,13 +43,13 @@
 		 */
 		public function create(): string
 		{
-			if ($this->rejectUnicode && preg_match('/[\x{10000}-\x{10FFFF}]/u', $this->message)) {
+			if ($this->rejectUnicode && $this->isUnicodeLetter($this->message)) {
 				throw new MessageViolationConstraintException(
 					'Your message contains unicode characters. Please remove them.'
 				);
 			}
 			
-			if ($this->rejectEmojis && preg_match('/[\x{1F600}-\x{1F64F}]/u', $this->message)) {
+			if ($this->rejectEmojis && preg_match('([*#0-9](?>\\xEF\\xB8\\x8F)?\\xE2\\x83\\xA3|\\xC2[\\xA9\\xAE]|\\xE2..(\\xF0\\x9F\\x8F[\\xBB-\\xBF])?(?>\\xEF\\xB8\\x8F)?|\\xE3(?>\\x80[\\xB0\\xBD]|\\x8A[\\x97\\x99])(?>\\xEF\\xB8\\x8F)?|\\xF0\\x9F(?>[\\x80-\\x86].(?>\\xEF\\xB8\\x8F)?|\\x87.\\xF0\\x9F\\x87.|..(\\xF0\\x9F\\x8F[\\xBB-\\xBF])?|(((?<zwj>\\xE2\\x80\\x8D)\\xE2\\x9D\\xA4\\xEF\\xB8\\x8F\k<zwj>\\xF0\\x9F..(\k<zwj>\\xF0\\x9F\\x91.)?|(\\xE2\\x80\\x8D\\xF0\\x9F\\x91.){2,3}))?))', $this->message)) {
 				throw new MessageViolationConstraintException(
 					'Your message contains emojis. Please remove them.'
 				);
@@ -62,5 +62,10 @@
 			}
 			
 			return $this->message;
+		}
+		
+		private function isUnicodeLetter(string $char): bool
+		{
+			return preg_match('/[^\x00-\x7F]/', $char);
 		}
 	}
