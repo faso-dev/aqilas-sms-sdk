@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/faso-dev/simple-curl-client.git",
-                "reference": "b4dc243c53edd4ff0a634651419654b64b6b58e4"
+                "reference": "3e8e220f19e9eedc6f79bb40b7178ac8e532f69d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/faso-dev/simple-curl-client/zipball/b4dc243c53edd4ff0a634651419654b64b6b58e4",
-                "reference": "b4dc243c53edd4ff0a634651419654b64b6b58e4",
+                "url": "https://api.github.com/repos/faso-dev/simple-curl-client/zipball/3e8e220f19e9eedc6f79bb40b7178ac8e532f69d",
+                "reference": "3e8e220f19e9eedc6f79bb40b7178ac8e532f69d",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 "issues": "https://github.com/faso-dev/simple-curl-client/issues",
                 "source": "https://github.com/faso-dev/simple-curl-client/tree/main"
             },
-            "time": "2023-01-11T15:40:50+00:00"
+            "time": "2023-01-12T12:43:09+00:00"
         }
     ],
     "packages-dev": [
@@ -1798,7 +1798,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "faso-dev/simple-curl-client": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
