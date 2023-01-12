@@ -8,6 +8,7 @@
 		protected string $apiBaseUrl = 'https://www.aqilas.com/api/';
 		protected string $apiVersion = 'v1';
 		protected string $smsEndpoint = '/sms';
+		protected string $balanceEndpoint = '/credit';
 		
 		private function __construct(string $apiKey)
 		{
@@ -40,6 +41,13 @@
 			return $this;
 		}
 		
+		public function defineBalanceEndpoint(string $balanceEndpoint): self
+		{
+			$this->balanceEndpoint = $balanceEndpoint;
+			
+			return $this;
+		}
+		
 		public function apiKey(): string
 		{
 			return $this->apiKey;
@@ -60,9 +68,19 @@
 			return $this->smsEndpoint;
 		}
 		
+		public function balanceEndpoint(): string
+		{
+			return $this->balanceEndpoint;
+		}
+		
 		public function smsEndpointUrl(): string
 		{
 			return $this->apiBaseUrl . $this->apiVersion . $this->smsEndpoint;
+		}
+		
+		public function balanceEndpointUrl(): string
+		{
+			return $this->apiBaseUrl . $this->apiVersion . $this->balanceEndpoint;
 		}
 		
 	}
