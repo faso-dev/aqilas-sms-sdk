@@ -3,11 +3,12 @@
 	namespace FasoDev\AqilasSmsSdk\Aqilas\Sms;
 	
 	use JsonSerializable;
+	use function is_string;
 	
 	class SMS implements SMSLable
 	{
 		private string $senderId;
-		private string $to;
+		private array $to;
 		private string $message;
 		
 		private function __construct(string $senderId)
@@ -22,7 +23,7 @@
 		
 		public function to($to): self
 		{
-			$this->to = $to;
+			$this->to = is_string($to) ? [$to] : $to;
 			
 			return $this;
 		}
